@@ -16,7 +16,7 @@ export default function CreatePlayer() {
             const response = await fetch (
                 APIPlayersURL,
                 {
-                    method: "POST"
+                    method: "POST",
                     body: JSON.stringify({ name, breed, status, imageUrl, teamId }),
                 }
             );
