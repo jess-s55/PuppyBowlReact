@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
+import fetchAllPlayers from '../API/index.js'
 
 export default function PlayerList() {
-    const [puppy, setPuppy] = useState([]);
-    console.log(puppy);
+    const [players, setPlayers] = useState([]);
+    useEffect(()=>{
+        fetchAllPlayers()
+    },[])
 }

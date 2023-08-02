@@ -28,7 +28,7 @@ export default function CreatePlayer() {
         setBreed("");
         setStatus("");
         setImageUrl("");
-        setTeamId(null);
+        setTeamId("");
     }
     return (
         <div>
@@ -73,6 +73,8 @@ export default function CreatePlayer() {
                         onChange={(e) => setTeamId(e.target.value)}
                     />
                 </label>
+                <br></br>
+                <button className="submitButton">Submit</button>
             </form>
         </div>
     )

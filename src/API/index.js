@@ -1,10 +1,8 @@
 const APIPlayersURL = "https://fsa-puppy-bowl.herokuapp.com/api/2302-acc-et-web-pt-a/players";
 
-const fetchAllPlayers = async () => {
+export default async function fetchAllPlayers() {
     try {
-        const response = await fetch(
-            `${APIPlayersURL}players`
-          );
+        const response = await fetch(APIPlayersURL);
           const result = await response.json();
           console.log(result);
           return result.data.players;
@@ -16,7 +14,7 @@ const fetchAllPlayers = async () => {
 const fetchSinglePlayer = async (playerId) => {
     try {
         const response = await fetch(
-            `${APIPlayersURL}players/${playerId}`
+            `${APIPlayersURL}/${playerId}`
           );
           const result = await response.json();
           console.log(result);  
