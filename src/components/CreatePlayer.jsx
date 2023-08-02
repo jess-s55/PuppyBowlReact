@@ -9,7 +9,7 @@ export default function CreatePlayer() {
     const [imageUrl, setImageUrl] = useState("");
     const [teamId, setTeamId] = useState(null);
     // const [error, setError] = useState(null);
-
+    
     async function handleSubmit(event) {
         event.preventDefault();
         try {
@@ -33,6 +33,15 @@ export default function CreatePlayer() {
     return (
         <div>
             <h2>Create Puppy Player</h2>
+            <form method="POST" onSubmit={handleSubmit}>
+                <label>
+                    Name:{""}
+                    <input
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                </label>
+            </form>
         </div>
     )
 }
