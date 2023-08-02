@@ -7,7 +7,7 @@ export default function CreatePlayer() {
     const [breed, setBreed] = useState("");
     const [status, setStatus] = useState("");
     const [imageUrl, setImageUrl] = useState("");
-    const [teamId, setTeamId] = useState(null);
+    const [teamId, setTeamId] = useState("");
     // const [error, setError] = useState(null);
     
     async function handleSubmit(event) {
