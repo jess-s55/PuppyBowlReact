@@ -41,6 +41,38 @@ export default function CreatePlayer() {
                         onChange={(e) => setName(e.target.value)}
                     />
                 </label>
+                <br></br>
+                <label>
+                    Breed:{""}
+                    <input
+                        value={breed}
+                        onChange={(e) => setBreed(e.target.value)}
+                    />
+                </label>
+                <br></br>
+                <label>
+                    Status:{""}
+                    <input
+                        value={status}
+                        onChange={(e) => setStatus(e.target.value)}
+                    />
+                </label>
+                <br></br>
+                <label>
+                    Image URL:{""}
+                    <input
+                        value={imageUrl}
+                        onChange={(e) => setImageUrl(e.target.value)}
+                    />
+                </label>
+                <br></br>
+                <label>
+                    Team ID Number:{""}
+                    <input
+                        value={teamId}
+                        onChange={(e) => setTeamId(e.target.value)}
+                    />
+                </label>
             </form>
         </div>
     )
