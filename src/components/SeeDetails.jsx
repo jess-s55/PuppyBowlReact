@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
+import PlayerList from './PlayerList.jsx'
 
 export default function SeeDetails() {
-  const [puppies, setPuppies] = useState(puppyList);
+  const [puppies, setPuppies] = useState(PlayerList);
   const [details, setDetails] = useState(null);
-  const featuredPup = puppies.find((pup)=> pup.id === pupDetails);
+  const featuredPup = puppies.find((pup)=> pup.id === details);
   console.log(featuredPup);
   console.log(puppies);
   
