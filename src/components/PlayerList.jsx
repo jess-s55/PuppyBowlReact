@@ -53,7 +53,7 @@ export default function PlayerList() {
                     <div key={player.id}>
                         <div><b>{player.name}</b></div>
                         <div><img src={player.imageUrl} /></div>
-                        <Link className="seeDetails" to='/players/:id'>See Details</Link>
+                        <Link className="seeDetails" to={`/players/${player.id}`}>See Details</Link>
                         <button className="deletePuppy">Delete Puppy</button>
                         <br />
                     </div>
