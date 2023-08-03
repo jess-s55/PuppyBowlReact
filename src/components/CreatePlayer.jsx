@@ -17,10 +17,14 @@ export default function CreatePlayer() {
                 APIPlayersURL,
                 {
                     method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
                     body: JSON.stringify({ name, breed, status, imageUrl, teamId }),
                 }
             );
-            const result = await response.json();
+            const newPlayer = await response.json();
+            return newPlayer;
         } catch (error) {
             console.error('Oops, something went wrong with adding that player!', error);
         }
