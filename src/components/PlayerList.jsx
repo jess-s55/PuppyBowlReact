@@ -33,10 +33,17 @@ export default function PlayerList() {
     };
 
     const handleChange = (event) => {
+        event.preventDefault();
+        try {
+            const filteredPlayers = allPlayers.filter(player =>
+                player.name.toLowerCase().includes(searchQuery.toLowerCase())
+            )
+            setPlayers(filteredPlayers)
+        } catch (error) {
+            console.error('Uh oh, trouble searching for players!', error);
+        }
         setSearchQuery(event.target.value);
     };
-
-
 
     const showPlayers = () => {
         if (players) {
