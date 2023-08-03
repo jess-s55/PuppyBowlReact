@@ -10,12 +10,10 @@ function App() {
 
 
   return (
- 
-   
     // <>
       <div>
-        <PlayerList />
         <CreatePlayer />
+        <PlayerList />
       </div>
   )
 }
