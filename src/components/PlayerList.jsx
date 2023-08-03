@@ -19,7 +19,7 @@ export default function PlayerList() {
         }
         fetchAllPlayers();
     }, [])
-
+    
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -52,6 +52,8 @@ export default function PlayerList() {
                     <div key={player.id}>
                         <div><b>{player.name}</b></div>
                         <div><img src={player.imageUrl} /></div>
+                        <button className="seeDetails">See Details</button>
+                        <button className="deletePuppy">Delete Puppy</button>
                         <br />
                     </div>
                 )}
@@ -91,7 +93,6 @@ export default function PlayerList() {
             </button>
         </form>
     }
-
 
     return (
         <div className="playerList">
