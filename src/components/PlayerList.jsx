@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 const APIPlayersURL = "https://fsa-puppy-bowl.herokuapp.com/api/2302-acc-et-web-pt-a/players";
 
@@ -52,7 +53,7 @@ export default function PlayerList() {
                     <div key={player.id}>
                         <div><b>{player.name}</b></div>
                         <div><img src={player.imageUrl} /></div>
-                        <button className="seeDetails">See Details</button>
+                        <Link className="seeDetails" to='/players/:id'>See Details</Link>
                         <button className="deletePuppy">Delete Puppy</button>
                         <br />
                     </div>

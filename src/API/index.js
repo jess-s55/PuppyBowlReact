@@ -26,7 +26,7 @@ const fetchSinglePlayer = async (playerId) => {
 
 const addNewPlayer = async (puppy) => {
     try {
-        const response= await fetch(`${APIPlayersURL}players`,{
+        const response= await fetch(`${APIPlayersURL}`,{
             method: 'POST',
             headers :{
                 'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ const addNewPlayer = async (puppy) => {
 
 const removePlayer = async (playerId) => {
     try {
-        const response = await fetch(`${APIPlayersURL}players/${playerId}`,{ 
+        const response = await fetch(`${APIPlayersURL}/${playerId}`,{ 
             method: 'DELETE'
         });
         const players = await response.json();
