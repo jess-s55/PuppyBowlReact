@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 // import PlayerList from './PlayerList.jsx'
 const APIPlayersURL = "https://fsa-puppy-bowl.herokuapp.com/api/2302-acc-et-web-pt-a/players";
 
@@ -19,12 +19,9 @@ export default function SeeDetails() {
 
 
   return (
+    <>
+    <Link to='/'>Back to All Players</Link>
     <div>
-      {/* {
-        puppy.map((puppy) => {
-          return <p onClick={()=>{ setPuppy(puppy.id)}} className="puppyName" key={puppy.id}>{puppy.name}</p>
-        })
-      } */}
        { puppy && (
         <div className='featuredPup'>
           <h2>{puppy.name}</h2>
@@ -38,6 +35,7 @@ export default function SeeDetails() {
         </div>
        )}
     </div>
+    </>
   )
 }
 

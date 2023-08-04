@@ -1,7 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import {removePlayer} from '../API/index.js';
 
 const APIPlayersURL = "https://fsa-puppy-bowl.herokuapp.com/api/2302-acc-et-web-pt-a/players";
+
+// async function deletePlayer(id) {
+//     await fetch(`${APIPlayersURL}/${id}`, {
+//       method: 'DELETE',
+      
+//     });
+//     fetchAllPlayers();
+// }
+
 
 export default function PlayerList() {
     const [allPlayers, setAllPlayers] = useState([]);
@@ -18,7 +28,10 @@ export default function PlayerList() {
                 console.error('Uh oh, trouble fetching players!', error);
             }
         }
+        
+        
         fetchAllPlayers();
+
     }, [])
     
     const handleSubmit = async (event) => {
@@ -54,9 +67,10 @@ export default function PlayerList() {
                         <div><b>{player.name}</b></div>
                         <div><img src={player.imageUrl} /></div>
                         <Link className="seeDetails" to={`/players/${player.id}`}>See Details</Link>
-                        <button className="deletePuppy">Delete Puppy</button>
+                        <button className="deletePuppy" onClick={() => removePlayer(player.id)}>Delete Puppy</button>
                         <br />
                     </div>
+                    
                 )}
             </>
         }

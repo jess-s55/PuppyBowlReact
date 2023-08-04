@@ -54,13 +54,15 @@ export default function CreatePlayer() {
                     />
                 </label>
                 <br></br>
-                <label>
-                    Status:{""}
-                    <input
+                <label htmlFor="status">Status</label>
+                    <select
+                        id="status"
                         value={status}
                         onChange={(e) => setStatus(e.target.value)}
-                    />
-                </label>
+                    >
+                        <option value="field">Field</option>
+                        <option value="bench">Bench</option>
+                    </select>
                 <br></br>
                 <label>
                     Image URL:{""}
