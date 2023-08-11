@@ -1,68 +1,118 @@
-const APIPlayersURL = "https://fsa-puppy-bowl.herokuapp.com/api/2302-acc-et-web-pt-a/players";
+// const APIPlayersURL = "https://fsa-puppy-bowl.herokuapp.com/api/2302-acc-et-web-pt-a/players";
 
-// export default async function fetchAllPlayers() {
+// // export default async function fetchAllPlayers() {
+// //     try {
+// //         const response = await fetch(APIPlayersURL);
+// //         const result = await response.json();
+// //         console.log(result);
+// //         setPlayer(result)
+// //     } catch (error) {
+// //         console.error('Uh oh, trouble fetching players!', error);
+// //     }
+// // }; 
+// async function fetchAllPlayers() {
 //     try {
 //         const response = await fetch(APIPlayersURL);
-//         const result = await response.json();
-//         console.log(result);
-//         setPlayer(result)
+//         const players = await response.json();
+//         // setAllPlayers(players.data.players)
+//         // setPlayers(players.data.players)
 //     } catch (error) {
 //         console.error('Uh oh, trouble fetching players!', error);
 //     }
-// }; 
-async function fetchAllPlayers() {
-    try {
-        const response = await fetch(APIPlayersURL);
-        const players = await response.json();
-        // setAllPlayers(players.data.players)
-        // setPlayers(players.data.players)
-    } catch (error) {
-        console.error('Uh oh, trouble fetching players!', error);
-    }
+// }
+
+// const fetchSinglePlayer = async (playerId) => {
+//     try {
+//         const response = await fetch(
+//             `${APIPlayersURL}/${playerId}`
+//           );
+//           const result = await response.json();
+//           console.log(result);  
+//           return result.data.player;   
+//     } catch (error) {
+//         console.error(`Oh no, trouble fetching player #${playerId}!`, error);
+//     }
+// };
+
+// const addNewPlayer = async (puppy) => {
+//     try {
+//         const response= await fetch(`${APIPlayersURL}`,{
+//             method: 'POST',
+//             headers :{
+//                 'Content-Type': 'application/json',
+//             },
+//             body: JSON.stringify(puppy),
+//         } );
+//         const player = await response.json();
+//         console.log(player);
+//         fetchAllPlayers();
+//     } catch (error) {
+//         console.error('Oops, something went wrong with adding that player!', error);
+//     }
+// };
+
+// export const removePlayer = async (playerId) => {
+//     try {
+//         const response = await fetch(`${APIPlayersURL}/${playerId}`,{ 
+//             method: 'DELETE'
+//         });
+//         const players = await response.json();
+//         fetchAllPlayers();
+//         // window.location.reload();
+//     } catch (error) {
+//         console.error(
+//             `Whoops, trouble removing player #${playerId} from the roster!`,
+//             error
+//         );
+//     }
+// };
+const APIPlayersURL = 'https://fsa-puppy-bowl.herokuapp.com/api/2302-acc-et-web-pt-a/players';
+
+export async function fetchAllPlayers() {
+  try {
+    const response = await fetch(
+      APIPlayersURL
+    );
+    const result = await response.json();
+    return result.data.players;
+  } catch (err) {
+    console.error(err);
+  }
 }
 
-const fetchSinglePlayer = async (playerId) => {
-    try {
-        const response = await fetch(
-            `${APIPlayersURL}/${playerId}`
-          );
-          const result = await response.json();
-          console.log(result);  
-          return result.data.player;   
-    } catch (error) {
-        console.error(`Oh no, trouble fetching player #${playerId}!`, error);
-    }
-};
+export async function fetchPlayerById(id) {
+  try {
+    const response = await fetch(
+      `${APIPlayersURL}/${id}`
+    );
+    const result = await response.json();
+    return result.data.player;
+  } catch (err) {
+    console.error(err);
+  }
+}
 
-const addNewPlayer = async (puppy) => {
-    try {
-        const response= await fetch(`${APIPlayersURL}`,{
-            method: 'POST',
-            headers :{
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(puppy),
-        } );
-        const player = await response.json();
-        console.log(player);
-        fetchAllPlayers();
-    } catch (error) {
-        console.error('Oops, something went wrong with adding that player!', error);
-    }
-};
+export async function createNewPlayer(player) {
+  try {
+    const response = await fetch(
+        APIPlayersURL,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(player),
+      }
+    );
+    const result = await response.json();
+    console.log(result);
+  } catch (err) {
+    console.error(err);
+  }
+}
 
-export const removePlayer = async (playerId) => {
-    try {
-        const response = await fetch(`${APIPlayersURL}/${playerId}`,{ 
-            method: 'DELETE'
-        });
-        const players = await response.json();
-        fetchAllPlayers();
-        // window.location.reload();
-    } catch (error) {
-        console.error(
-            `Whoops, trouble removing player #${playerId} from the roster!`,
-            error
-        );
-    }
-};
+export async function deletePlayer(id) {
+  await fetch(`${APIPlayersURL}/${id}`, {
+    method: 'DELETE',
+  });
+}

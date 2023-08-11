@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import CreatePlayer from './components/CreatePlayer.jsx';
-import PlayerList from './components/PlayerList.jsx';
-import SeeDetails from './components/SeeDetails.jsx';
+import PlayerList from './pages/PlayerList.jsx';
+import SeeDetails from './pages/SeeDetails.jsx';
 import { Routes, Route } from "react-router-dom";
 
 
@@ -12,17 +11,30 @@ function App() {
 
 
   return (
-    // <>
       <div>
-        <CreatePlayer />
         <Routes>
           <Route path='/' element={<PlayerList />} />
           <Route path='/players/:id' element={<SeeDetails />} />
         </Routes>
-        
-        {/* <PlayerList /> */}
       </div>
   )
 }
+
+// export default App
+// import { Routes, Route } from 'react-router-dom'
+// import AllPlayers from './pages/AllPlayers'
+// import SinglePlayer from './pages/SinglePlayer'
+// import './App.css'
+
+// function App() {
+//   return (
+//     <div>
+//       <Routes>
+//         <Route path='/' element={<AllPlayers/>} />
+//         <Route path='/players/:id' element={<SinglePlayer />} />
+//       </Routes>
+//     </div>
+//   )
+// }
 
 export default App

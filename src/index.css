@@ -71,3 +71,40 @@ button:focus-visible {
 img {
   width: 400px;
 }
+
+.submit {
+  margin: 8px;
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 4px;
+  background: rgb(32, 208, 32);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.seeDetailsButton {
+  margin: 8px;
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 4px;
+  background: blue;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.deleteButton {
+  margin: 8px;
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 4px;
+  background: red;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+a:hover {
+  
+}
